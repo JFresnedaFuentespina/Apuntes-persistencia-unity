@@ -12,7 +12,6 @@ public class Level1Manager : MonoBehaviour
     public Button level2Button;
     void Start()
     {
-        Debug.Log("HOLA");
         String playerName = PlayerPrefs.GetString("PlayerName");
         int playerAge = PlayerPrefs.GetInt("PlayerAge");
         playerNameText.text = playerName + " " + playerAge;
@@ -23,13 +22,11 @@ public class Level1Manager : MonoBehaviour
 
     public void MainMenu()
     {
-        Debug.Log("MAINMENU");
         SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public void LoadLevel2()
     {
-        Debug.Log("MAINMENU");
         SceneManager.LoadSceneAsync("Level2");
     }
 
