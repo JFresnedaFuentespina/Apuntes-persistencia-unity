@@ -11,12 +11,20 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public Button saveButton;
     public Button playButton;
+    public Button forgetButton;
     public Toggle rememberMeToggle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         saveButton.onClick.AddListener(Save);
         playButton.onClick.AddListener(LoadLevel1);
+        forgetButton.onClick.AddListener(Forget);
+        String rememberMe = PlayerPrefs.GetString("RememberMe");
+        if (rememberMe == "True")
+        {
+            nameInput.text = PlayerPrefs.GetString("PlayerName");
+            ageInput.text = PlayerPrefs.GetInt("PlayerAge").ToString();
+        }
     }
 
     public void Save()
@@ -30,7 +38,7 @@ public class MainMenuBehaviour : MonoBehaviour
         bool rememberMe = rememberMeToggle.isOn;
 
         PlayerPrefs.SetString("PlayerName", name);
-        PlayerPrefs.SetInt("PlayerAge", age); // you can store as int directly
+        PlayerPrefs.SetInt("PlayerAge", age);
         PlayerPrefs.SetString("RememberMe", rememberMe.ToString());
         PlayerPrefs.Save();
     }
@@ -38,5 +46,12 @@ public class MainMenuBehaviour : MonoBehaviour
     public void LoadLevel1()
     {
         SceneManager.LoadSceneAsync("Level1");
+    }
+
+    public void Forget()
+    {
+        nameInput.text = "";
+        ageInput.text = "";
+        PlayerPrefs.DeleteAll();
     }
 }

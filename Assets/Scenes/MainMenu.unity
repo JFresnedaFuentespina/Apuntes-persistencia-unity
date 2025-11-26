@@ -1135,6 +1135,7 @@ MonoBehaviour:
   ageInput: {fileID: 1756670847}
   saveButton: {fileID: 1197042018}
   playButton: {fileID: 329518499}
+  forgetButton: {fileID: 693126090}
   rememberMeToggle: {fileID: 1165599099}
 --- !u!1 &545971785
 GameObject:
